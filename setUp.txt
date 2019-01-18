@@ -1,0 +1,17 @@
+
+install helm using this link by using script based method
+
+https://docs.helm.sh/using_helm/#installing-helm
+
+kubectl create serviceaccount --namespace kube-system tiller
+
+kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount kube-system:tiller
+
+helm init --service-account tiller --upgrade
+
+
+Deployment instruction ingress-nginx
+https://kubernetes.github.io/ingress-nginx/deploy/
+
+if Kubernetes cluster has helm then we can use
+helm install stable/nginx-ingress --name my-nginx --set rbac.create=true
